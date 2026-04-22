@@ -6,7 +6,7 @@
 # Configures Claude Desktop to connect to the Workbench MCP server.
 #
 # Usage:
-#   curl -fsSL https://workbench.actianlabs.com/install-mcp.sh | bash
+#   curl -fsSL https://workbench.actianlabs.com/macos-installer | bash
 #   — or —
 #   bash install-mcp.sh
 # ============================================================================

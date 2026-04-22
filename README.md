@@ -4,8 +4,10 @@ macOS installer for connecting [Claude Desktop](https://claude.ai/download) to t
 
 ## Quick Install
 
+[Download the installer](https://workbench.actianlabs.com/macos-installer), then run:
+
 ```bash
-curl -fsSL https://workbench.actianlabs.com/install-mcp.sh | bash
+bash ~/Downloads/install-mcp.sh
 ```
 
 ## What It Does
