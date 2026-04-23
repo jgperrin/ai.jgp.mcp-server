@@ -174,7 +174,7 @@ echo "    URL: $MCP_URL"
 
 # Step 5: Test connectivity
 step "Testing MCP server connectivity..."
-if curl -s -o /dev/null -w "%{http_code}" --max-time 5 "${MCP_URL}" 2>/dev/null | grep -qE "^(200|302)$"; then
+if curl -s -o /dev/null -w "%{http_code}" --max-time 5 "${MCP_URL}" </dev/null 2>/dev/null | grep -qE "^(200|302)$"; then
   info "MCP server is reachable."
 else
   warn "Could not reach the MCP server (it may be temporarily down)."
