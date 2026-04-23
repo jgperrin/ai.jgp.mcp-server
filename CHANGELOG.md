@@ -1,5 +1,11 @@
 # Changelog
 
+## v1.0.3 - 2026-04-22
+
+### Fixed
+- Connectivity test checks HTTP status code (200/302) instead of parsing SSE stream.
+- Redirect stdin for inner curl to avoid pipe conflict when installed via `curl | bash`.
+
 ## v1.0.2 - 2026-04-22
 
 ### Fixed

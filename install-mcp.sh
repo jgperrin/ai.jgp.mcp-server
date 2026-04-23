@@ -102,7 +102,7 @@ PYEOF
 
 echo ""
 echo ""
-echo "  Data Product Workbench - MCP Server Installer v1.0.2"
+echo "  Data Product Workbench - MCP Server Installer v1.0.3"
 echo "  ────────────────────────────────────────────────────"
 
 # Step 1: Check Claude Desktop
