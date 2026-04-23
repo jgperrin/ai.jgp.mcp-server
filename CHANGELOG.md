@@ -1,5 +1,11 @@
 # Changelog
 
+## v1.0.6 - 2026-04-23
+
+### Added
+- `mcp-bridge.sh` — auto-reconnecting wrapper around mcp-remote. Restarts mcp-remote when server disconnects.
+- Installer downloads bridge to `~/.workbench/mcp-bridge.sh` and configures Claude Desktop to use it.
+
 ## v1.0.5 - 2026-04-23
 
 ### Changed

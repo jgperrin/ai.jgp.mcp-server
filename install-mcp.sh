@@ -73,8 +73,9 @@ if "mcpServers" not in config:
 servers = config["mcpServers"]
 if mcp_key in servers:
     current = servers[mcp_key]
-    if isinstance(current, dict) and current.get("command") == "npx" and \
-       isinstance(current.get("args"), list) and mcp_url in current.get("args", []):
+    args = current.get("args", [])
+    if isinstance(current, dict) and mcp_url in args and \
+       ("mcp-bridge" in current.get("command", "") or "mcp-remote" in str(args)):
         print("ALREADY_OK")
         sys.exit(0)
     else:
@@ -82,10 +83,11 @@ if mcp_key in servers:
 else:
     print("ADDED")
 
-# Set the config
+# Set the config — use bridge script for auto-reconnect
+bridge_path = os.path.expanduser("~/.workbench/mcp-bridge.sh")
 servers[mcp_key] = {
-    "command": "npx",
-    "args": ["mcp-remote", mcp_url]
+    "command": bridge_path,
+    "args": [mcp_url]
 }
 
 # Write config
@@ -101,7 +103,7 @@ PYEOF
 
 echo ""
 echo ""
-echo "  Data Product Workbench - MCP Server Installer v1.0.5"
+echo "  Data Product Workbench - MCP Server Installer v1.0.6"
 echo "  ────────────────────────────────────────────────────"
 
 # Step 1: Check Claude Desktop
@@ -137,7 +139,21 @@ if ! command -v python3 &> /dev/null; then
 fi
 info "Python 3 available."
 
-# Step 3: Update config
+# Step 3: Install bridge script
+step "Installing MCP bridge..."
+BRIDGE_DIR="$HOME/.workbench"
+BRIDGE_FILE="$BRIDGE_DIR/mcp-bridge.sh"
+BRIDGE_URL="https://raw.githubusercontent.com/jgperrin/ai.jgp.mcp-server/main/mcp-bridge.sh"
+mkdir -p "$BRIDGE_DIR"
+curl -fsSL "$BRIDGE_URL" </dev/null > "$BRIDGE_FILE" 2>/dev/null
+chmod +x "$BRIDGE_FILE"
+if [ -x "$BRIDGE_FILE" ]; then
+  info "Bridge installed at $BRIDGE_FILE"
+else
+  warn "Could not download bridge script. Falling back to direct mcp-remote."
+fi
+
+# Step 4: Update config
 step "Configuring MCP server..."
 RESULT=$(update_config)
 
