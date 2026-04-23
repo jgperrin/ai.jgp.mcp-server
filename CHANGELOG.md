@@ -1,5 +1,10 @@
 # Changelog
 
+## v1.0.2 - 2026-04-22
+
+### Fixed
+- Connectivity test now follows redirects and uses trailing slash to avoid 302 protocol downgrade.
+
 ## v1.0.1 - 2026-04-22
 
 ### Fixed

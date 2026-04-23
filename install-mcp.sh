@@ -102,7 +102,7 @@ PYEOF
 
 echo ""
 echo ""
-echo "  Data Product Workbench - MCP Server Installer v1.0.1"
+echo "  Data Product Workbench - MCP Server Installer v1.0.2"
 echo "  ────────────────────────────────────────────────────"
 
 # Step 1: Check Claude Desktop
@@ -174,7 +174,7 @@ echo "    URL: $MCP_URL"
 
 # Step 5: Test connectivity
 step "Testing MCP server connectivity..."
-if curl -s --max-time 5 "$MCP_URL" 2>/dev/null | head -1 | grep -q "^id:"; then
+if curl -sL --max-time 5 "${MCP_URL}/" 2>/dev/null | head -1 | grep -q "^id:"; then
   info "MCP server is reachable."
 else
   warn "Could not reach the MCP server (it may be temporarily down)."
