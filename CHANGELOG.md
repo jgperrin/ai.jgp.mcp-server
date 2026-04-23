@@ -1,5 +1,11 @@
 # Changelog
 
+## v1.0.5 - 2026-04-23
+
+### Changed
+- Switch to Streamable HTTP transport — remove `--transport sse-only` flag and `/mcp/sse` path.
+- MCP URL simplified to `https://api.jgp.ai/mcp`.
+
 ## v1.0.4 - 2026-04-22
 
 ### Changed

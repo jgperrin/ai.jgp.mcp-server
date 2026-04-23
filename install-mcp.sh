@@ -16,7 +16,7 @@ set -euo pipefail
 # ── Configuration ────────────────────────────────────────────────────────────
 
 MCP_KEY="data-product-workbench"
-MCP_URL="https://api.jgp.ai/mcp/sse"
+MCP_URL="https://api.jgp.ai/mcp"
 CLAUDE_APP="/Applications/Claude.app"
 CONFIG_DIR="$HOME/Library/Application Support/Claude"
 CONFIG_FILE="$CONFIG_DIR/claude_desktop_config.json"
@@ -74,8 +74,7 @@ servers = config["mcpServers"]
 if mcp_key in servers:
     current = servers[mcp_key]
     if isinstance(current, dict) and current.get("command") == "npx" and \
-       isinstance(current.get("args"), list) and mcp_url in current.get("args", []) and \
-       "--transport" in current.get("args", []):
+       isinstance(current.get("args"), list) and mcp_url in current.get("args", []):
         print("ALREADY_OK")
         sys.exit(0)
     else:
@@ -86,7 +85,7 @@ else:
 # Set the config
 servers[mcp_key] = {
     "command": "npx",
-    "args": ["mcp-remote", mcp_url, "--transport", "sse-only"]
+    "args": ["mcp-remote", mcp_url]
 }
 
 # Write config
@@ -102,7 +101,7 @@ PYEOF
 
 echo ""
 echo ""
-echo "  Data Product Workbench - MCP Server Installer v1.0.4"
+echo "  Data Product Workbench - MCP Server Installer v1.0.5"
 echo "  ────────────────────────────────────────────────────"
 
 # Step 1: Check Claude Desktop
