@@ -16,7 +16,7 @@ set -euo pipefail
 # ── Configuration ────────────────────────────────────────────────────────────
 
 MCP_KEY="data-product-workbench"
-MCP_URL="https://api.jgp.ai/mcp"
+MCP_URL="https://api.jgp.ai/mcp/sse"
 CLAUDE_APP="/Applications/Claude.app"
 CONFIG_DIR="$HOME/Library/Application Support/Claude"
 CONFIG_FILE="$CONFIG_DIR/claude_desktop_config.json"
@@ -48,7 +48,7 @@ import json, sys, os
 
 config_file = os.path.expanduser("~/Library/Application Support/Claude/claude_desktop_config.json")
 mcp_key = "data-product-workbench"
-mcp_url = "https://api.jgp.ai/mcp"
+mcp_url = "https://api.jgp.ai/mcp/sse"
 
 # Read existing config or start fresh
 config = {}
@@ -102,7 +102,7 @@ PYEOF
 
 echo ""
 echo ""
-echo "  Data Product Workbench - MCP Server Installer v1.0.3"
+echo "  Data Product Workbench - MCP Server Installer v1.0.4"
 echo "  ────────────────────────────────────────────────────"
 
 # Step 1: Check Claude Desktop

@@ -1,5 +1,10 @@
 # Changelog
 
+## v1.0.4 - 2026-04-22
+
+### Changed
+- MCP server URL updated to `/mcp/sse` (explicit SSE endpoint path).
+
 ## v1.0.3 - 2026-04-22
 
 ### Fixed
