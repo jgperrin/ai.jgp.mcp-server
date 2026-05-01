@@ -1,5 +1,10 @@
 # Changelog
 
+## v1.1.0 - 2026-05-01
+
+### Changed
+- Minor version bump alongside the Workbench-wide migration of user stories from `doc/` to GitHub issues (tracked in `ai.jgp.bitol.svc`).
+
 ## v1.0.6 - 2026-04-23
 
 ### Added
